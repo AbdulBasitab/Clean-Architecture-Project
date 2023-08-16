@@ -1,3 +1,3 @@
 # Sample Architecture Project
 
-A new Flutter project.
+Flutter Project utilizing Clean Architecture Design Principles.
