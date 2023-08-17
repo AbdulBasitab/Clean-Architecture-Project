@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sample_architecture_project/src/constants/theme_constants.dart';
-import 'package:sample_architecture_project/src/core/global_providers.dart';
-import 'package:sample_architecture_project/src/features/movies/presentation/screens/movie_screen.dart';
+import 'package:sample_architecture_project/src/core/global_provider/global_providers.dart';
 import 'package:sample_architecture_project/src/features/news/presentation/screens/news_screen.dart';
 import 'package:sample_architecture_project/src/features/weather/presentation/screens/weather_screen.dart';
 
 void main() {
-  runApp(const ProviderScope(child: MainApp()));
+  runApp(
+    const ProviderScope(
+      child: MainApp(),
+    ),
+  );
 }
 
 class MainApp extends ConsumerStatefulWidget {
@@ -21,7 +24,6 @@ class _MainAppState extends ConsumerState<MainApp> {
   List<Widget> mainNavigationScreens = [
     const WeatherScreen(),
     const NewsScreen(),
-    const MovieScreen(),
   ];
 
   @override
@@ -43,10 +45,6 @@ class _MainAppState extends ConsumerState<MainApp> {
                   BottomNavigationBarItem(
                     icon: Icon(Icons.newspaper_rounded),
                     label: "News",
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.tv_rounded),
-                    label: "Movies",
                   ),
                 ],
                 currentIndex: selectedIndex,
