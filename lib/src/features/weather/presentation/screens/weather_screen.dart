@@ -34,6 +34,7 @@ class _WeatherScreenState extends ConsumerState<WeatherScreen> {
           centerTitle: true,
         ),
         body: ListView(
+          physics: const BouncingScrollPhysics(),
           padding: const EdgeInsets.symmetric(
             horizontal: 50,
             vertical: 30,
@@ -90,8 +91,6 @@ class _WeatherScreenState extends ConsumerState<WeatherScreen> {
               ),
             ),
             const SizedBox(height: 30),
-            // (cityNameController.text.isNotEmpty && weather.hasValue)
-            //     ?
             weather.when(
               data: (data) =>
                   WeatherDataWidget(weather: data, cityName: cityName),
@@ -102,8 +101,7 @@ class _WeatherScreenState extends ConsumerState<WeatherScreen> {
               ),
               error: (error, stackTrace) =>
                   WeatherErrorWidget(error: error.toString()),
-            )
-            // : const SizedBox.shrink()
+            ),
           ],
         ),
       ),

@@ -16,11 +16,12 @@ class WeatherDataWidget extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
+        Flexible(
+          fit: FlexFit.loose,
+          child: Center(
+            child: Text(
               toBeginningOfSentenceCase(cityName) ?? cityName,
               style: customTextStyle(
                 fontSize: 22,
@@ -28,20 +29,26 @@ class WeatherDataWidget extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
-            const SizedBox(width: 15),
+          ),
+        ),
+        const SizedBox(height: 10),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          textBaseline: TextBaseline.alphabetic,
+          children: [
             Text(
               weather.weatherCondition.text,
               style: customTextStyle(
-                fontSize: 22,
+                fontSize: 18,
                 color: Colors.white,
                 fontWeight: FontWeight.w500,
               ),
             ),
-            const SizedBox(width: 10),
+            //const SizedBox(width: 10),
             Image.network('https:${weather.weatherCondition.icon}'),
           ],
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: 25),
         Table(
           defaultColumnWidth: const FixedColumnWidth(150.0),
           border: TableBorder.all(

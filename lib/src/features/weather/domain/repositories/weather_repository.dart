@@ -3,5 +3,9 @@ import 'package:sample_architecture_project/src/features/weather/domain/entities
 
 abstract class WeatherRepository {
   Future<DataState<WeatherEntity>> getCurrentWeatherForLocation(
-      String cityName);
+    String cityName,
+  );
+
+  /* All the contracts or methods related to this feature would
+    be here */
 }

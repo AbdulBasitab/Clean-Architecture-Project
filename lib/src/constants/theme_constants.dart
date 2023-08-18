@@ -28,5 +28,6 @@ TextStyle customTextStyle({
     fontSize: fontSize,
     color: color ?? Colors.white,
     fontWeight: fontWeight ?? FontWeight.normal,
+    overflow: TextOverflow.ellipsis,
   );
 }

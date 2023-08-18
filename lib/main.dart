@@ -31,6 +31,7 @@ class _MainAppState extends ConsumerState<MainApp> {
     final selectedIndex = ref.watch(navigationSelectedIndexProvider);
     return MaterialApp(
         theme: AppTheme.darkTheme,
+        title: 'Clean Architecture',
         home: SafeArea(
           child: Scaffold(
             body: mainNavigationScreens[selectedIndex],
