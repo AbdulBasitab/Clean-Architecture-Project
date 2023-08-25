@@ -2,6 +2,7 @@ const String weatherApiBaseUrl = 'https://api.weatherapi.com/v1';
 const String weatherApiKey = 'bda6f47028c34e9ca1662356231608';
 String getCurrentWeatherByName(String cityName) =>
     '$weatherApiBaseUrl/current.json?key=$weatherApiKey&q=$cityName&aqi=no';
+//'https://api.weatherapi.com/v1/current.json?key=bda6f47028c34e9ca1662356231608&q=sargodha&aqi=no'
 
 extension UVIndexDescription on double {
   String get uvDescription {
