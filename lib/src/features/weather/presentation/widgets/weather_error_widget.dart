@@ -14,6 +14,7 @@ class WeatherErrorWidget extends StatelessWidget {
         style: customTextStyle(
           fontSize: 20,
           color: Colors.white60,
+          fontWeight: FontWeight.w500,
         ),
       ),
     );
