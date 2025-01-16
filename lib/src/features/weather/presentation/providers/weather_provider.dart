@@ -6,12 +6,12 @@ import 'package:sample_architecture_project/src/utils/dependency_injection.dart'
 final cityNameProvider = StateProvider<String>((ref) => '');
 
 final weatherProvider =
-    StateNotifierProvider<WeatherNotifier, AsyncValue<WeatherEntity>>((ref) {
+    AsyncNotifierProvider<WeatherNotifier, AsyncValue<WeatherEntity>>((ref) {
   final getCurrentWeather = ref.watch(getCurrentWeatherProvider);
   return WeatherNotifier(ref: ref, getCurrentWeather: getCurrentWeather);
 });
 
-class WeatherNotifier extends StateNotifier<AsyncValue<WeatherEntity>> {
+class WeatherNotifier extends AsyncNotifier<AsyncValue<WeatherEntity>> {
   WeatherNotifier(
       {required Ref ref, required GetCurrentWeather getCurrentWeather})
       : _getCurrentWeather = getCurrentWeather,
@@ -27,7 +27,7 @@ class WeatherNotifier extends StateNotifier<AsyncValue<WeatherEntity>> {
   Future<void> getCurrentWeatherOfCity() async {
     state = const AsyncValue.loading();
     final city = _ref.read(cityNameProvider);
-    var weatherData =
+    final weatherData =
         await _getCurrentWeather.getCurrentWeatherForLocation(city);
     if (weatherData.data != null) {
       state = AsyncValue.data(weatherData.data!);

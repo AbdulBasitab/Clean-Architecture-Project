@@ -12,7 +12,7 @@ class WeatherRepositorImpl implements WeatherRepository {
   Future<DataState<WeatherEntity>> getCurrentWeatherForLocation(
       String cityName) async {
     try {
-      var data = await weatherApiService.getCurrentWeather(cityName);
+      final data = await weatherApiService.getCurrentWeather(cityName);
       if (data.data != null) {
         return DataSuccess(data.data!.toEntity());
       } else {

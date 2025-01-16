@@ -41,13 +41,14 @@ class WeatherModel {
   Map<String, dynamic> toJson() => _$WeatherModelToJson(this);
 
   WeatherEntity toEntity() => WeatherEntity(
-      temperature: temperature,
-      feelsLikeTemp: feelsLikeTemp,
-      weatherCondition: weatherCondition,
-      windSpeed: windSpeed,
-      precipatation: precipatation,
-      humidity: humidity,
-      cloudCover: cloudCover,
-      uvIndex: uvIndex,
-      isDay: isDay);
+        temperature: temperature,
+        feelsLikeTemp: feelsLikeTemp,
+        weatherCondition: weatherCondition,
+        windSpeed: windSpeed,
+        precipatation: precipatation,
+        humidity: humidity,
+        cloudCover: cloudCover,
+        uvIndex: uvIndex,
+        isDay: isDay,
+      );
 }
