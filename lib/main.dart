@@ -32,39 +32,37 @@ class _MainAppState extends ConsumerState<MainApp> {
     return MaterialApp(
         theme: AppTheme.darkTheme,
         title: 'Clean Architecture',
-        home: SafeArea(
-          child: Scaffold(
-            body: mainNavigationScreens[selectedIndex],
-            bottomNavigationBar: BottomAppBar(
-              height: 70,
-              child: BottomNavigationBar(
-                items: const [
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.cloud_rounded),
-                    label: "Weather",
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.newspaper_rounded),
-                    label: "News",
-                  ),
-                ],
-                currentIndex: selectedIndex,
-                onTap: (value) {
-                  ref.read(navigationSelectedIndexProvider.notifier).state =
-                      value;
-                },
-                // backgroundColor: Colors.black,
-                // selectedItemColor: const Color.fromARGB(255, 8, 78, 135),
-                // unselectedItemColor: Colors.white54,
-                // unselectedLabelStyle: const TextStyle(
-                //   fontSize: 20,
-                //   color: Colors.white54,
-                // ),
-                // selectedLabelStyle: TextStyle(
-                //   fontSize: 20,
-                //   color: Colors.blue.shade400,
-                // ),
-              ),
+        home: Scaffold(
+          body: mainNavigationScreens[selectedIndex],
+          bottomNavigationBar: BottomAppBar(
+            height: 85,
+            child: BottomNavigationBar(
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.cloud_rounded),
+                  label: "Weather",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.newspaper_rounded),
+                  label: "News",
+                ),
+              ],
+              currentIndex: selectedIndex,
+              onTap: (value) {
+                ref.read(navigationSelectedIndexProvider.notifier).state =
+                    value;
+              },
+              // backgroundColor: Colors.black,
+              // selectedItemColor: const Color.fromARGB(255, 8, 78, 135),
+              // unselectedItemColor: Colors.white54,
+              // unselectedLabelStyle: const TextStyle(
+              //   fontSize: 20,
+              //   color: Colors.white54,
+              // ),
+              // selectedLabelStyle: TextStyle(
+              //   fontSize: 20,
+              //   color: Colors.blue.shade400,
+              // ),
             ),
           ),
         ));

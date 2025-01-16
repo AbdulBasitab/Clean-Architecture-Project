@@ -92,8 +92,10 @@ class _WeatherScreenState extends ConsumerState<WeatherScreen> {
             ),
             const SizedBox(height: 30),
             weather.when(
-              data: (data) =>
-                  WeatherDataWidget(weather: data, cityName: cityName),
+              data: (data) => (data == null)
+                  ? const WeatherErrorWidget(
+                      error: "Something went wrong, Please try again")
+                  : WeatherDataWidget(weather: data, cityName: cityName),
               loading: () => const Center(
                 child: CircularProgressIndicator(
                   color: AppColors.lightPurple,
